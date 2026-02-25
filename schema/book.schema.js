@@ -3,11 +3,15 @@ const {Schema, model} = require("mongoose")
 const Book = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
+    minLength: 3,
+    maxLength: 200
   },
   pages: {
     type: Number,
-    required: true
+    required: true,
+    min: 30,
+    max: 500
   },
   publishedYear: {
     type: Number,
@@ -15,7 +19,9 @@ const Book = new Schema({
   },
   publishedHome: {
     type: String,
-    required: true
+    required: true,
+    minLength: 3,
+    maxLength: 100
   },
   description: {
     type: String,
@@ -23,15 +29,28 @@ const Book = new Schema({
   },
   period: {
     type: String,
-    required: true
+    required: true,
+    enum: {
+      values: ["Temuriylar davri", "Sovet davri", "Jadid davri", "Mustaqillik davri"],
+      message: "{VALUE} bunday qiymat qabul qilinmaydi"
+    }
   },
   genre: {
     type: String,
-    required: true
+    required: true,
+    enum: {
+      values: ["Comedy", "Romance", "Thriller", "Horror", "Action", "Documentary", "Science fiction", "Fantasy", "History"],
+      message: "{VALUE} bunday qiymat qabul qilinmaydi"
+    }
   },
   imageUrl: {
     type: String,
     required: true
+  },
+  authorInfo: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: "author"
   }
 }, {
   versionKey: false,
