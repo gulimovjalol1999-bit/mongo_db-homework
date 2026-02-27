@@ -11,7 +11,7 @@ const Book = new Schema({
     type: Number,
     required: true,
     min: 30,
-    max: 500
+    max: 5000
   },
   publishedYear: {
     type: Number,
