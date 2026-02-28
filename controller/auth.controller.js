@@ -72,6 +72,9 @@ const verify = async (req, res, next) => {
     next(error);
   }
 };
+
+console.log("salom");
+
 module.exports = {
   register,
   verify,
