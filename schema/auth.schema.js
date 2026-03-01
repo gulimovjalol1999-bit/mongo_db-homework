@@ -1,4 +1,3 @@
-const { string } = require("joi")
 const {Schema, model} = require("mongoose")
 
 const Auth = new Schema({
@@ -23,13 +22,14 @@ const Auth = new Schema({
   },
   otp: {
     type: String,
-    required: true
+    // required: true
   },
   otpTime: {
     type: Number,
     required: true,
-    minLength: 2,
-    maxLength: 50
+  },
+  refreshToken: {
+    type: String,
   },
 }, {
   versionKey: false,

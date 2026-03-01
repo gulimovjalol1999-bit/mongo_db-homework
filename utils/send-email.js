@@ -15,7 +15,7 @@ async function sendMessage(code, email) {
     subject: "Lesson",
     from: "gulimovjalol1999@gmail.com",
     to: email,
-    test: `
+    html: `
     <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +46,7 @@ Sahifalar ortida yashiringan dunyolar sizni kutmoqda
 <td style="padding:50px 40px;text-align:center;">
 
 <h2 style="margin:0;font-size:28px;color:#2d2a26;">
-Xush kelibsiz, ${name}
+Xush kelibsiz, 
 </h2>
 
 <p style="margin-top:25px;font-size:17px;line-height:1.8;color:#555;">
@@ -60,13 +60,13 @@ Har bir sahifa — bu yangi imkoniyat.
 Va bugun siz o‘z hikoyangizni boshlayapsiz.
 </p>
 
-<a href="https://your-site.uz"
+<p 
 style="display:inline-block;margin-top:35px;padding:16px 36px;
 background:#c6a35c;color:#ffffff;text-decoration:none;
 border-radius:50px;font-weight:bold;font-size:15px;
 box-shadow:0 8px 20px rgba(198,163,92,0.4);">
-Kitoblar olamiga kirish →
-</a>
+${code}
+</p>
 
 </td>
 </tr>

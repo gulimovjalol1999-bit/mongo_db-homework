@@ -10,6 +10,8 @@ const authorValidator = (data) => {
     work: joi.string().required(),
     imageUrl: joi.string().required()
   })
+
+  return schema.validate(data)
 } 
 
 module.exports = authorValidator

@@ -30,6 +30,7 @@ const getOneBook = async (req, res, next) => {
 
 const addBook = async (req, res, next) => {
   try {
+    console.log("ishladi");
     const {
       title,
       pages,
