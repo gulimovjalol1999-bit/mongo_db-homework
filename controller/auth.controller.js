@@ -90,6 +90,7 @@ const verify = async (req, res, next) => {
   }
 };
 
+<<<<<<< HEAD
 const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -144,6 +145,9 @@ const logout = async (req, res, next) => {
     next(error);
   }
 };
+=======
+console.log("salom");
+>>>>>>> 5c59b6c7c42006124ac5923c449f6bd3cae026c0
 
 module.exports = {
   register,
