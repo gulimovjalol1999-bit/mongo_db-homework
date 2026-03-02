@@ -10,7 +10,7 @@ const Book = new Schema({
   pages: {
     type: Number,
     required: true,
-    min: 30,
+    min: 30, 
     max: 5000
   },
   publishedYear: {
@@ -51,11 +51,23 @@ const Book = new Schema({
     type: Schema.Types.ObjectId,
     required: true,
     ref: "author"
+  },
+  quote: {
+    
   }
 }, {
   versionKey: false,
   timestamps: true
 })
+
+Book.virtual("quotes", {
+  ref: "quote",
+  localField: "_id",
+  foreignField: "book"
+})
+
+Book.set("toObject", { virtuals: true })
+Book.set("toJSON", { virtuals: true })
 
 const BookSchema = model("book", Book)
 module.exports = BookSchema

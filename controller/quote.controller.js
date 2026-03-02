@@ -1,10 +1,10 @@
 const CustomErrorhandler = require("../error/custom-error.handler");
-const BookSchema = require("../schema/book.schema");
 const QuoteSchema = require("../schema/quote.schema");
 
-const getAllBooks = async (req, res, next) => {
+const getAllQuotes = async (req, res, next) => {
   try {
-    const books = await BookSchema.find().populate("authorInfo");
+    const books = await QuoteSchema.find().populate("quote");
+
 
     res.status(200).json(books);
   } catch (error) {
@@ -12,12 +12,12 @@ const getAllBooks = async (req, res, next) => {
   }
 };
 
-const getOneBook = async (req, res, next) => {
+const getOneQuote = async (req, res, next) => {
   try {
     // const {title, pages, publishedYear, publishedHome, description, period, imageUrl} = req.body
     const { id } = req.params;
 
-    const foundedBook = await BookSchema.findById(id).populate("authorInfo").populate("quotes");
+    const foundedBook = await QuoteSchema.findById(id);
 
     if (!foundedBook) {
       throw CustomErrorhandler.NotFound("Not found")
@@ -29,63 +29,45 @@ const getOneBook = async (req, res, next) => {
   }
 };
 
-const addBook = async (req, res, next) => {
+const addQuote = async (req, res, next) => {
   try {
     console.log("ishladi");
     const {
-      title,
-      pages,
-      publishedYear,
-      publishedHome,
-      description,
-      period,
-      genre,
-      imageUrl,
-      authorInfo
+      text,
+      book,
+      author
     } = req.body;
 
-    await BookSchema.create({
-      title,
-      pages,
-      publishedYear,
-      publishedHome,
-      description,
-      period,
-      genre,
-      imageUrl,
-      authorInfo
+    await QuoteSchema.create({
+      text,
+      book,
+      author
     });
 
     res.status(201).json({
-      message: "Added new Book",
+      message: "Added new Quote",
     });
   } catch (error) {
     next(error)
   }
 };
 
-const updateBook = async (req, res, next) => {
+const updateQuote = async (req, res, next) => {
   try {
     const {
-      title,
-      pages,
-      publishedYear,
-      publishedHome,
-      description,
-      period,
-      genre,
-      imageUrl,
-      authorInfo
+      text,
+      book,
+      author
     } = req.body;
     const { id } = req.params;
 
-    const foundedBook = await BookSchema.findById(id);
+    const foundedBook = await QuoteSchema.findById(id);
 
     if (!foundedBook) {
       throw CustomErrorhandler.NotFound("Not found")
     }
 
-    await BookSchema.findByIdAndUpdate(id, {
+    await QuoteSchema.findByIdAndUpdate(id, {
       title,
       pages,
       publishedYear,
@@ -105,17 +87,17 @@ const updateBook = async (req, res, next) => {
   }
 };
 
-const deleteBook = async (req, res, next) => {
+const deleteQuote = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const foundedBook = await BookSchema.findById(id);
+    const foundedBook = await QuoteSchema.findById(id);
 
     if (!foundedBook) {
       throw CustomErrorhandler.NotFound("Not found")
     }
 
-    await BookSchema.findByIdAndDelete(id);
+    await QuoteSchema.findByIdAndDelete(id);
 
     res.status(200).json({
       message: "Deleted Book",
@@ -126,9 +108,9 @@ const deleteBook = async (req, res, next) => {
 };
 
 module.exports = {
-  getAllBooks,
-  getOneBook,
-  addBook,
-  updateBook,
-  deleteBook,
+  getAllQuotes,
+  getOneQuote,
+  addQuote,
+  updateQuote,
+  deleteQuote,
 };

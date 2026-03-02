@@ -13,7 +13,7 @@ const bookValidator = (data) => {
     authorInfo: joi.string()
   })
 
-  return schema.validate(data) 
+  return schema.validate(data)
 } 
 
 module.exports = bookValidator
