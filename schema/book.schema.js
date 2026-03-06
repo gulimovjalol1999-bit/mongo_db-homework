@@ -52,8 +52,9 @@ const Book = new Schema({
     required: true,
     ref: "author"
   },
-  quote: {
-    
+  audioUrl: {
+    type: String,
+    required: false
   }
 }, {
   versionKey: false,

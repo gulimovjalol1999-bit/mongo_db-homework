@@ -22,7 +22,7 @@ const Auth = new Schema({
   },
   otp: {
     type: String,
-    // required: true
+    required: true
   },
   otpTime: {
     type: Number,

@@ -7,15 +7,16 @@ const errorMiddleware = require("./middleware/error-middleware")
 const authRouter = require("./router/auth.routes")
 const cookieParser = require("cookie-parser")
 const quoteRouter = require("./router/quote.routes")
+const profileRouter = require("./router/profile.routes")
 require("dotenv").config()
 
-const PORT = process.env.PORT || 3000
-const app = express()
+const PORT = process.env.PORT || 3000 
+const app = express() 
 
 connectDb() 
 app.use(express.json())
 app.use(cors()) 
-app.use(cookieParser())
+app.use(cookieParser()) 
 
 
 //router
@@ -23,6 +24,7 @@ app.use(authorRouter)
 app.use(bookRouter) 
 app.use(authRouter)
 app.use(quoteRouter)
+app.use(profileRouter)
 
 app.use(errorMiddleware) 
 
