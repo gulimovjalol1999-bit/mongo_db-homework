@@ -8,7 +8,8 @@ const authorValidator = (data) => {
     period: joi.string().valid("Temuriylar davri", "Sovet davri", "Jadid davri", "Mustaqillik davri").required(),
     bio: joi.string().required(),
     work: joi.string().required(),
-    imageUrl: joi.string().required()
+    imageUrl: joi.string().required(),
+    phoneNumber: joi.string().required()
   })
 
   return schema.validate(data)

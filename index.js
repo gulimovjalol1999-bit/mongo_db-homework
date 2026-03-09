@@ -8,6 +8,7 @@ const authRouter = require("./router/auth.routes")
 const cookieParser = require("cookie-parser")
 const quoteRouter = require("./router/quote.routes")
 const profileRouter = require("./router/profile.routes")
+const logger = require("./utils/logger")
 require("dotenv").config()
 
 const PORT = process.env.PORT || 3000 
@@ -27,6 +28,12 @@ app.use(quoteRouter)
 app.use(profileRouter)
 
 app.use(errorMiddleware) 
+
+//logger
+// logger.warn("Console logger")
+// logger.error("Erro logger")
+// logger.info("Info logger")
+// logger.debug("Debug logger")
 
  
 app.listen(PORT, () => {

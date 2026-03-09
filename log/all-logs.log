@@ -1,0 +1,48 @@
+warn: Console logger
+error: Erro logger
+info: Info logger
+debug: Debug logger
+undefined [undefined] warn: Console logger
+undefined [undefined] error: Erro logger
+undefined [undefined] info: Info logger
+undefined [undefined] debug: Debug logger
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+2026-03-07T20:10:05.815Z [test] warn: Console logger
+2026-03-07T20:10:05.816Z [test] error: Erro logger
+2026-03-07T20:10:05.816Z [test] info: Info logger
+2026-03-07T20:10:05.816Z [test] debug: Debug logger
+2026-03-07T20:12:39.397Z [test] [33mwarn[39m: Console logger
+2026-03-07T20:12:39.398Z [test] [31merror[39m: Erro logger
+2026-03-07T20:12:39.398Z [test] [32minfo[39m: Info logger
+2026-03-07T20:12:39.398Z [test] [34mdebug[39m: Debug logger
+2026-03-07T20:14:27.618Z [test] [33mwarn[39m: Console logger
+2026-03-07T20:14:27.619Z [test] [31merror[39m: Erro logger
+2026-03-07T20:14:27.619Z [test] [32minfo[39m: Info logger
+2026-03-07T20:14:27.619Z [test] [34mdebug[39m: Debug logger
+2026-03-07T20:17:47.424Z [test] [33mwarn[39m: Console logger
+2026-03-07T20:17:47.425Z [test] [31merror[39m: Erro logger
+2026-03-07T20:17:47.425Z [test] [32minfo[39m: Info logger
+2026-03-07T20:17:47.425Z [test] [34mdebug[39m: Debug logger
+2026-03-07T20:18:53.607Z [test] [33mwarn[39m: Console logger
+2026-03-07T20:18:53.607Z [test] [31merror[39m: Erro logger
+2026-03-07T20:18:53.607Z [test] [32minfo[39m: Info logger
+2026-03-07T20:18:53.608Z [test] [34mdebug[39m: Debug logger

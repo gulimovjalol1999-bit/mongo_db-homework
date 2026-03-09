@@ -12,7 +12,7 @@ module.exports = function (req, res, next) {
 
     const decode = jwt.verify(token, process.env.REFRESH_SEKRET_KEY)
 
-    const acessToken = access_token({
+    const accessToken = access_token({
           id: decode._id,
           role: decode.role,
           email: decode.email,
