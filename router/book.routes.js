@@ -1,10 +1,11 @@
 const {Router} = require("express")
-const { getAllBooks, getOneBook, addBook, updateBook, deleteBook, uploadFileBook } = require("../controller/book.controller")
+const { getAllBooks, getOneBook, addBook, updateBook, deleteBook, uploadFileBook, uploadElectronBook } = require("../controller/book.controller")
 
 const authorization = require("../middleware/authorization")
 const bookValidatorMiddleware = require("../middleware/book.validator.middleware")
 const upload = require("../middleware/upload")
 const stream = require("../controller/audio.controller")
+const uploadElBook = require("../middleware/upload.electronBook")
 
 const bookRouter = Router()
 
@@ -16,5 +17,8 @@ bookRouter.delete("/delete_book/:id", deleteBook)
 
 bookRouter.post("/books/:bookId/audio", upload.single("audio"), uploadFileBook)
 bookRouter.get("/books/:bookId/audio", stream)
+
+bookRouter.post("/elBooks/:bookId", uploadElBook.single("electronBook"), uploadElectronBook)
+
 
 module.exports = bookRouter

@@ -55,6 +55,10 @@ const Book = new Schema({
   audioUrl: {
     type: String,
     required: false
+  },
+  electronBook: {
+    type: String,
+    required: false,
   }
 }, {
   versionKey: false,

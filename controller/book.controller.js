@@ -195,6 +195,36 @@ const uploadFileBook = async (req, res, next) => {
   }
 };
 
+const uploadElectronBook = async (req, res, next) => {
+  try {
+    const { bookId } = req.params;    
+
+    const foundedBook = await BookSchema.findById(bookId);
+
+    if (!foundedBook) {
+      throw CustomErrorhandler.NotFound("Not found");
+    }
+
+    if (foundedBook.electronBook) {
+      const fileUrl = path.join(__dirname, "..", foundedBook.electronBook);
+
+      if (fs.existsSync(fileUrl)) {
+        fs.unlinkSync(fileUrl);
+      }
+    }
+
+    const changer = req.file.path.replace(/\\/, "/");
+    foundedBook.audioUrl = changer;
+    foundedBook.save();
+
+    res.status(201).json({
+      message: changer,
+    });
+  } catch (error) {
+    return res.json(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getAllBooks,
   getOneBook,
@@ -202,4 +232,5 @@ module.exports = {
   updateBook,
   deleteBook,
   uploadFileBook,
+  uploadElectronBook,
 };
