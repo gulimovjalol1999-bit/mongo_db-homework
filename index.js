@@ -9,6 +9,8 @@ const cookieParser = require("cookie-parser")
 const quoteRouter = require("./router/quote.routes")
 const profileRouter = require("./router/profile.routes")
 const logger = require("./utils/logger")
+const carRouter = require("./router/car.routes")
+const modelRouter = require("./router/model.routes")
 require("dotenv").config()
 
 const PORT = process.env.PORT || 3000 
@@ -26,6 +28,8 @@ app.use(bookRouter)
 app.use(authRouter)
 app.use(quoteRouter)
 app.use(profileRouter)
+app.use(modelRouter)
+app.use(carRouter)
 
 app.use(errorMiddleware) 
 

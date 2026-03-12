@@ -10,7 +10,8 @@ const Auth = new Schema({
   },
   email: {
     type: String,
-    required: [true, "email berilishi shart"]
+    required: [true, "email berilishi shart"],
+    ref: "email"
   },
   password: {
     type: String,

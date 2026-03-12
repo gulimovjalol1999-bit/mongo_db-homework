@@ -19,6 +19,10 @@ module.exports = function (req, res, next) {
     const decode = jwt.verify(token, process.env.SEKRET_KEY)
     req["user"] = decode
 
+    if (req.user.role !== "admin") {
+      throw CustomErrorhandler.UnAuthorized("Admin only");
+    }
+
     next() 
 
   } catch (error) {
